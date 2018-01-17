@@ -4,7 +4,7 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
         return NODE_MODULES.del([
-            process.env.TOTEMCSS_DIST + '/assets'
+            process.env.TOTEMCSS_DIST + '/totemcss'
         ]);
     }
 }

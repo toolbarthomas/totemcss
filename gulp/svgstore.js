@@ -2,7 +2,7 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
         return svgstore = GULP.src([
-            process.env.TOTEMCSS_SRC + '/assets/main/images/layout/svg-sprite/**/*.svg'
+            process.env.TOTEMCSS_SRC + '/totemcss/main/images/layout/svg-sprite/**/*.svg'
         ])
         .pipe(GULP_PLUGINS.plumber())
         .pipe(GULP_PLUGINS.filter(function(file) {
@@ -36,7 +36,7 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
         .pipe(GULP_PLUGINS.svgstore({
             inlineSvg: true
         }))
-        .pipe(GULP.dest(process.env.TOTEMCSS_DIST + '/assets/main/images/layout'))
+        .pipe(GULP.dest(process.env.TOTEMCSS_DIST + '/totemcss/main/images/layout'))
         .pipe(GULP_PLUGINS.connect.reload());
     }
 }

@@ -5,30 +5,30 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/main/stylesheets/*.scss'
+                    process.env.TOTEMCSS_SRC + '/totemcss/main/stylesheets/*.scss'
                 ],
-                output: process.env.TOTEMCSS_DIST + '/assets/main/stylesheets'
+                output: process.env.TOTEMCSS_DIST + '/totemcss/main/stylesheets'
             },
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/modules/*/stylesheets/*.scss',
-                    process.env.TOTEM_SUBMODULES + '/totem.module.*/stylesheets/*.scss'
+                    process.env.TOTEMCSS_SRC + '/totemcss/modules/*/stylesheets/*.scss',
+                    process.env.TOTEMCSS_PACKAGES + '/totem.module.*/stylesheets/*.scss'
                 ],
-                output: process.env.TOTEMCSS_DIST + '/assets/modules'
+                output: process.env.TOTEMCSS_DIST + '/totemcss/modules'
             },
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/groups/*/stylesheets/*.scss',
-                    process.env.TOTEM_SUBMODULES + '/totem.group.*/stylesheets/*.scss'
+                    process.env.TOTEMCSS_SRC + '/totemcss/groups/*/stylesheets/*.scss',
+                    process.env.TOTEMCSS_PACKAGES + '/totem.group.*/stylesheets/*.scss'
                 ],
-                output: process.env.TOTEMCSS_DIST + '/assets/groups'
+                output: process.env.TOTEMCSS_DIST + '/totemcss/groups'
             },
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/templates/*/stylesheets/*.scss',
-                    process.env.TOTEM_SUBMODULES + '/totem.template.*/stylesheets/*.scss',
+                    process.env.TOTEMCSS_SRC + '/totemcss/templates/*/stylesheets/*.scss',
+                    process.env.TOTEMCSS_PACKAGES + '/totem.template.*/stylesheets/*.scss',
                 ],
-                output: process.env.TOTEMCSS_DIST + '/assets/templates'
+                output: process.env.TOTEMCSS_DIST + '/totemcss/templates'
             }
         ];
 

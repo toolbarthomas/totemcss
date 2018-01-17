@@ -3,13 +3,13 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
     {
         // Prevent syncing development files
         var sync_ignores = [
-            '!' + process.env.TOTEMCSS_SRC + '/assets/**/sprite/**',
-            '!' + process.env.TOTEMCSS_SRC + '/assets/**/svg-sprite/**',
-            '!' + process.env.TOTEMCSS_SRC + '/assets/modules/**/javascripts/**',
-            '!' + process.env.TOTEMCSS_SRC + '/assets/groups/**/javascripts/**',
-            '!' + process.env.TOTEMCSS_SRC + '/assets/templates/**/javascripts/**',
+            '!' + process.env.TOTEMCSS_SRC + '/totemcss/**/sprite/**',
+            '!' + process.env.TOTEMCSS_SRC + '/totemcss/**/svg-sprite/**',
+            '!' + process.env.TOTEMCSS_SRC + '/totemcss/modules/**/javascripts/**',
+            '!' + process.env.TOTEMCSS_SRC + '/totemcss/groups/**/javascripts/**',
+            '!' + process.env.TOTEMCSS_SRC + '/totemcss/templates/**/javascripts/**',
             '!' + process.env.TOTEMCSS_SRC + '/**/**.{scss,md,twig,html}',
-            '!' + process.env.TOTEMCSS_SRC + '/assets/**/data.json'
+            '!' + process.env.TOTEMCSS_SRC + '/totemcss/**/data.json'
         ];
 
         var sources = [
@@ -24,9 +24,9 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/**',
+                    process.env.TOTEMCSS_SRC + '/totemcss/**',
                 ].concat(sync_ignores),
-                output: process.env.TOTEMCSS_DIST + '/assets',
+                output: process.env.TOTEMCSS_DIST + '/totemcss',
                 options: {
                     nodir: true
                 }
