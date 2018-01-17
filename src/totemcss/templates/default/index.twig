@@ -17,13 +17,13 @@
         <meta name="theme-color" content="{{ app.theme_color is defined ? color : '#ffffff' }}" />
 
         <!-- Web Application Icon -->
-        <link href="/resources/main/images/layout/appicon.png" rel="icon" type="image/png">
+        <link href="/totemcss/main/images/layout/appicon.png" rel="icon" type="image/png">
 
         <!-- Apple Touch Icon -->
-        <link href="/resources/main/images/layout/apple-touch-icon.png" rel="apple-touch-icon">
-        <link href="/resources/main/images/layout/appicon.svg" rel="mask-icon" color="#000000">
+        <link href="/totemcss/main/images/layout/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="/totemcss/main/images/layout/appicon.svg" rel="mask-icon" color="#000000">
 
-        <link rel="stylesheet" href="/resources/main/stylesheets/main.css">
+        <link rel="stylesheet" href="/totemcss/main/stylesheets/main.css">
 
         {% block head %}{% endblock %}
     </head>
@@ -42,7 +42,7 @@
         </div>
     </body>
 
-    {% include 'totem_submodules::totem.module.svgsprite/partials/svg-sprite-injector.twig' %}
+    {% include 'totemcss_packages::totem.module.svgsprite/partials/svg-sprite-injector.twig' %}
 
     {% block foot %}{% endblock %}
 </html>
