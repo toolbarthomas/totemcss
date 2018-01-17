@@ -64,10 +64,41 @@ GULP.task('clean', requireGulpTask('clean'));
 // Any generator files i.e. .scss,.twig.. will ben ignored.
 GULP.task('sync', requireGulpTask('sync'));
 
+// Gulp task that runs all stylesheet specific tasks
+GULP.task('sync', requireGulpTask('sync'));
+
+// Generates a .png sprite & Sass stylesheet
+GULP.task('spritesmith', requireGulpTask('spritesmith'));
+
+// Runs Node Sass and creates stylesheets
+// For each Totemcss package
+GULP.task('sass', requireGulpTask('sass'));
+
+// Generates a .svg sprite that should
+// be used as an inline sprite within your project
+GULP.task('svgstore', requireGulpTask('svgstore'));
+
+// Runs all stylesheet related task asynchronous
+GULP.task('stylesheets', function (callback) {
+    NODE_MODULES.runSequence(
+        'spritesmith',
+        [
+            'sass',
+            'svgstore'
+        ],
+        callback
+    );
+});
+
+// Default Gulp task that will run all
+// the necessary tasks to generate a development ready build
 GULP.task('default', function (callback) {
     NODE_MODULES.runSequence(
         'clean',
         'sync',
+        [
+            'stylesheets'
+        ],
         callback
     );
 });
