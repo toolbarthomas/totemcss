@@ -1,0 +1,26 @@
+{
+  "name": "totemcss",
+  "version": "0.1.0",
+  "description": "Modular prototype framework for the web.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://toolbarthomas@github.com/toolbarthomas/totemcss.git"
+  },
+  "keywords": [
+    "totemcss",
+    "modular",
+    "sass",
+    "oocss",
+    "modular"
+  ],
+  "author": "toolbarthomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toolbarthomas/totemcss/issues"
+  },
+  "homepage": "https://github.com/toolbarthomas/totemcss#readme"
+}
