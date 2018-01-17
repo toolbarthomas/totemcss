@@ -86,9 +86,31 @@ GULP.task('stylesheets', function (callback) {
             'sass',
             'svgstore'
         ],
+        'twig',
         callback
     );
 });
+
+// Adds Browserify support to the workflow
+// See: https://www.npmjs.com/package/browserify
+GULP.task('browserify', requireGulpTask('browserify'));
+
+// Concats javascript files from all modules by default
+GULP.task('concat', requireGulpTask('concat'));
+
+// Runs all javascript related task asynchronous
+GULP.task('javascripts', function (callback) {
+    NODE_MODULES.runSequence(
+        'browserify',
+        'concat',
+        callback
+    );
+});
+
+// Parses all Totemcss twig documents.
+// Stylesheet tasks should run before parsing any twig files
+// so we can import any generated stylesheet file
+GULP.task('twig', requireGulpTask('twig'));
 
 // Default Gulp task that will run all
 // the necessary tasks to generate a development ready build
@@ -97,10 +119,10 @@ GULP.task('default', function (callback) {
         'clean',
         'sync',
         [
-            'stylesheets'
+            'stylesheets',
+            'javascripts'
         ],
+        'twig',
         callback
     );
 });
-
-
