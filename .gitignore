@@ -1,0 +1,12 @@
+/dist
+/test
+
+node_modules
+bower_components
+.sass-cache
+
+.env
+*.map
+*.log
+
+/data.json
