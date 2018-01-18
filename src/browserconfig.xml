@@ -2,10 +2,10 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square70x70logo src="/totem/assets/main/images/layout/tile.png"/>
-            <square150x150logo src="/totem/assets/main/images/layout/tile.png"/>
-            <wide310x150logo src="/totem/assets/main/images/layout/tile-wide.png"/>
-            <square310x310logo src="/totem/assets/main/images/layout/tile.png"/>
+            <square70x70logo src="/totemcss/main/images/layout/tile.png"/>
+            <square150x150logo src="/totemcss/main/images/layout/tile.png"/>
+            <wide310x150logo src="/totemcss/main/images/layout/tile-wide.png"/>
+            <square310x310logo src="/totemcss/main/images/layout/tile.png"/>
         </tile>
     </msapplication>
 </browserconfig>
