@@ -1,7 +1,12 @@
 {% extends "totemcss::/templates/default/index.twig" %}
 
 {% block head %}
-
+    {% include "totemcss_packages::/totemcss-module-loadcss/partials/loadcss.twig" with {
+        stylesheets: [
+            '/totemcss/templates/default/stylesheets/default.css',
+            '/totemcss/groups/frontpage/stylesheets/frontpage.css'
+        ]
+    } %}
 {% endblock %}
 
 {% block content %}
