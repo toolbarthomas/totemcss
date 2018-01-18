@@ -6,20 +6,6 @@
 const ENV = require('dotenv').config();
 
 
-// Throw an error & abort the Gulp process
-// if there is no environment file
-if(ENV.error) {
-    throw '[ Totemcss ] - An environment (./.env) file is required for this workflow. You can create one by duplicating ./.env.dist example. This file should be located in ' + process.cwd();
-}
-
-
-// Throw an error & abort the Gulp process
-// when one or more of the following environment variables are undefined
-if (!process.env.TOTEMCSS_SRC || !process.env.TOTEMCSS_SRC || !process.env.TOTEMCSS_PACKAGES || !process.env.TOTEMCSS_GENERATOR_DEST) {
-    throw 'The src path from our .env file is not defined, please check again.';
-}
-
-
 // We use Gulp for our build system
 // Each gulp task is defined as a seperate task located in ./gulp
 const GULP = require('gulp');
@@ -37,12 +23,29 @@ const NODE_MODULES = {
     browserify: require('browserify'),
     buffer: require('vinyl-buffer'),
     camelCase: require('camelcase'),
+    chalk: require('chalk'),
     del: require('del'),
     fse: require('fs-extra'),
     merge: require('merge-stream'),
     path: require('path'),
     runSequence: require('run-sequence').use(GULP)
 };
+
+
+// Throw an error & abort the Gulp process
+// if there is no environment file
+if (ENV.error) {
+    console.log(NODE_MODULES.chalk.red('[ Totemcss ] - An environment (./.env) file is required for this workflow. You can create one by duplicating ./.env.dist example. This file should be located in ' + process.cwd()));
+    process.exit(1);
+}
+
+
+// Throw an error & abort the Gulp process
+// when one or more of the following environment variables are undefined
+if (!process.env.TOTEMCSS_SRC || !process.env.TOTEMCSS_SRC || !process.env.TOTEMCSS_PACKAGES) {
+    console.log(NODE_MODULES.chalk.red('The src path from our .env file is not defined, please check again.'));
+    process.exit(1);
+}
 
 
 // Create a revision timesamp of the current date in milliseconds.
