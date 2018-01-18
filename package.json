@@ -64,6 +64,7 @@
     "vinyl-buffer": "^1.0.0"
   },
   "dependencies": {
+    "totemcss-core": "^0.1.0",
     "totemcss-module-loadcss": "^0.1.0",
     "totemcss-module-svgsprite": "^0.1.0"
   }
