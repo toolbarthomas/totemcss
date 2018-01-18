@@ -16,14 +16,14 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.TOTEMCSS_SRC + '/totemcss/groups/*/javascripts/*.js',
-                    process.env.TOTEMCSS_PACKAGES + '/totemcss-group.*/javascripts/*.js'
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-group*/javascripts/*.js'
                 ],
                 output: process.env.TOTEMCSS_DIST + '/totemcss/groups',
             },
             {
                 input: [
                     process.env.TOTEMCSS_SRC + '/totemcss/templates/*/javascripts/*.js',
-                    process.env.TOTEMCSS_PACKAGES + '/totemcss-template.*/javascripts/*.js'
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-template*/javascripts/*.js'
                 ],
                 output: process.env.TOTEMCSS_DIST + '/totemcss/templates',
             }
