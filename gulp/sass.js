@@ -37,6 +37,7 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
         sources.forEach(function (source) {
 
             var stream = GULP.src(source.input)
+                .pipe(GULP_PLUGINS.cached('sass'))
                 .pipe(GULP_PLUGINS.sourcemaps.init())
                 .pipe(GULP_PLUGINS.sassGlob())
                 .pipe(GULP_PLUGINS.sass().on('error', GULP_PLUGINS.sass.logError))
@@ -47,8 +48,6 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
             streams.push(stream);
         }, this);
 
-        return NODE_MODULES.merge(streams).pipe(GULP_PLUGINS.livereload({
-            quiet: true
-        }));
+        return NODE_MODULES.merge(streams).pipe(GULP_PLUGINS.connect.reload());
     }
 }

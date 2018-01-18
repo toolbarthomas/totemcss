@@ -8,24 +8,24 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/modules/*/javascripts/*.js',
-                    process.env.TOTEMCSS_PACKAGES + '/totem-module*/javascripts/*.js'
+                    process.env.TOTEMCSS_SRC + '/totemcss/modules/*/javascripts/*.js',
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-module*/javascripts/*.js'
                 ],
-                output: process.env.TOTEMCSS_DIST + '/assets/modules',
+                output: process.env.TOTEMCSS_DIST + '/totemcss/modules',
             },
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/groups/*/javascripts/*.js',
-                    process.env.TOTEMCSS_PACKAGES + '/totem-group.*/javascripts/*.js'
+                    process.env.TOTEMCSS_SRC + '/totemcss/groups/*/javascripts/*.js',
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-group.*/javascripts/*.js'
                 ],
-                output: process.env.TOTEMCSS_DIST + '/assets/groups',
+                output: process.env.TOTEMCSS_DIST + '/totemcss/groups',
             },
             {
                 input: [
-                    process.env.TOTEMCSS_SRC + '/assets/templates/*/javascripts/*.js',
-                    process.env.TOTEMCSS_PACKAGES + '/totem-template.*/javascripts/*.js'
+                    process.env.TOTEMCSS_SRC + '/totemcss/templates/*/javascripts/*.js',
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-template.*/javascripts/*.js'
                 ],
-                output: process.env.TOTEMCSS_DIST + '/assets/templates',
+                output: process.env.TOTEMCSS_DIST + '/totemcss/templates',
             }
         ];
 

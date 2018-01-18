@@ -6,7 +6,7 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.TOTEMCSS_SRC + '/totemcss/groups/**/*.twig',
-                    process.env.TOTEMCSS_PACKAGES + '/totem.group*/**/*.twig',
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-group*/**/*.twig',
                     '!' + process.env.TOTEMCSS_PACKAGES + '/**/node_modules/**/*.twig'
                 ],
                 output: process.env.TOTEMCSS_DIST + '/totemcss/groups'
@@ -14,10 +14,10 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.TOTEMCSS_SRC + '/totemcss/modules/**/*.twig',
-                    process.env.TOTEMCSS_PACKAGES + '/totem.module*/**/*.twig',
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-module*/**/*.twig',
                     '!' + process.env.TOTEMCSS_PACKAGES + '/**/node_modules/**/*.twig',
                     '!' + process.env.TOTEMCSS_SRC + '/totemcss/modules/**/partials/**/*.twig',
-                    '!' + process.env.TOTEMCSS_PACKAGES + '/totem.module*/**/partials/**/*.twig',
+                    '!' + process.env.TOTEMCSS_PACKAGES + '/totemcss-module*/**/partials/**/*.twig',
                 ],
                 output: process.env.TOTEMCSS_DIST + '/totemcss/modules'
             }
@@ -56,13 +56,12 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
             })
             .pipe(GULP_PLUGINS.plumber())
             .pipe(GULP_PLUGINS.data(function(file) {
-                console.log((process.cwd()).substring((process.cwd()).lastIndexOf("/") + 1) + '/');
                 return data;
             }))
             .pipe(GULP_PLUGINS.twig({
                 base: './',
                 namespaces: {
-                    'totemcss': '../' + (process.cwd()).substring((process.cwd()).lastIndexOf("/") + 1) + '/',
+                    'totemcss': '../' + (process.cwd()).substring((process.cwd()).lastIndexOf("/") + 1) + '/' + (process.env.TOTEMCSS_SRC).replace('./','') + '/totemcss',
                     'totemcss_packages': NODE_MODULES.path.normalize(process.env.TOTEMCSS_PACKAGES) + '/'
                 },
                 onError: function(error) {

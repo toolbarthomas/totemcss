@@ -37,6 +37,7 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
 
         sources.forEach(function(source) {
             var stream = GULP.src(source.input, source.options)
+                .pipe(GULP_PLUGINS.cached('sync'))
                 .pipe(GULP_PLUGINS.filter(function (file) {
                     return file.stat && file.contents.length;
                 }))
