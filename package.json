@@ -66,6 +66,7 @@
   "dependencies": {
     "totemcss-core": "^0.1.0",
     "totemcss-module-loadcss": "^0.1.0",
-    "totemcss-module-svgsprite": "^0.1.0"
+    "totemcss-module-svgsprite": "^0.1.0",
+    "totemcss-module-tipi": "^0.1.0"
   }
 }
