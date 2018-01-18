@@ -10,8 +10,8 @@
 ///
 
 // Import Core
-@import "../../../../node_modules/totem.core/stylesheets/shared/**"; // Import totem.core when defined within ./totem/node_modules/..
-@import "../../../../../totem_submodules/totem.core/stylesheets/shared/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+@import "../../../../node_modules/totemcss-core/stylesheets/shared/**"; // Import totemcss-core when defined within ./totem/node_modules/..
+@import "../../../../../totemcss_packages/totemcss-core/stylesheets/shared/**"; // Import totemcss-core when defined wotjom ./totem../totemcss_packages/...
 
 // Import Main
 @import "shared/**";
@@ -32,8 +32,8 @@
 ///
 
 // Import Core
-@import "../../../../node_modules/totem.core/stylesheets/helpers/**"; // Import totem.core when defined within ./totem/node_modules/..
-@import "../../../../../totem_submodules/totem.core/stylesheets/helpers/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+@import "../../../../node_modules/totemcss-core/stylesheets/helpers/**"; // Import totemcss-core when defined within ./totem/node_modules/..
+@import "../../../../../totemcss_packages/totemcss-core/stylesheets/helpers/**"; // Import totemcss-core when defined wotjom ./totem../totemcss_packages/...
 
 // Import Main
 @import "helpers/**";
@@ -54,8 +54,8 @@
 ///
 
 // Import Core
-@import "../../../../node_modules/totem.core/stylesheets/settings/**"; // Import totem.core when defined within ./totem/node_modules/..
-@import "../../../../../totem_submodules/totem.core/stylesheets/settings/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+@import "../../../../node_modules/totemcss-core/stylesheets/settings/**"; // Import totemcss-core when defined within ./totem/node_modules/..
+@import "../../../../../totemcss_packages/totemcss-core/stylesheets/settings/**"; // Import totemcss-core when defined wotjom ./totem../totemcss_packages/...
 
 // Import Main
 @import "settings/**";
@@ -76,8 +76,8 @@
 ///
 
 // Import Core
-@import "../../../../node_modules/totem.core/stylesheets/tools/**"; // Import totem.core when defined within ./totem/node_modules/..
-@import "../../../../../totem_submodules/totem.core/stylesheets/tools/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+@import "../../../../node_modules/totemcss-core/stylesheets/tools/**"; // Import totemcss-core when defined within ./totem/node_modules/..
+@import "../../../../../totemcss_packages/totemcss-core/stylesheets/tools/**"; // Import totemcss-core when defined wotjom ./totem../totemcss_packages/...
 
 // Import Main
 @import "tools/**";
@@ -96,8 +96,8 @@
 ///
 
 // Import Core
-@import "../../../../node_modules/totem.core/stylesheets/properties/**"; // Import totem.core when defined within ./totem/node_modules/..
-@import "../../../../../totem_submodules/totem.core/stylesheets/properties/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+@import "../../../../node_modules/totemcss-core/stylesheets/properties/**"; // Import totemcss-core when defined within ./totem/node_modules/..
+@import "../../../../../totemcss_packages/totemcss-core/stylesheets/properties/**"; // Import totemcss-core when defined wotjom ./totem../totemcss_packages/...
 
 // Import Main
 @import "properties/**";
