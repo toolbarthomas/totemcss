@@ -56,27 +56,30 @@ function requireGulpTask(file) {
     return require('./gulp/' + file)(GULP, GULP_PLUGINS, NODE_MODULES, REVISION);
 }
 
+
 // Gulp task that cleans up the distribution folder
 // before processing any new streams
 GULP.task('clean', requireGulpTask('clean'));
+
 
 // Gulp task that syncs static assets & libriaries
 // Any generator files i.e. .scss,.twig.. will ben ignored.
 GULP.task('sync', requireGulpTask('sync'));
 
-// Gulp task that runs all stylesheet specific tasks
-GULP.task('sync', requireGulpTask('sync'));
 
 // Generates a .png sprite & Sass stylesheet
 GULP.task('spritesmith', requireGulpTask('spritesmith'));
+
 
 // Runs Node Sass and creates stylesheets
 // For each Totemcss package
 GULP.task('sass', requireGulpTask('sass'));
 
+
 // Generates a .svg sprite that should
 // be used as an inline sprite within your project
 GULP.task('svgstore', requireGulpTask('svgstore'));
+
 
 // Runs all stylesheet related task asynchronous
 GULP.task('stylesheets', function (callback) {
@@ -86,17 +89,19 @@ GULP.task('stylesheets', function (callback) {
             'sass',
             'svgstore'
         ],
-        'twig',
         callback
     );
 });
+
 
 // Adds Browserify support to the workflow
 // See: https://www.npmjs.com/package/browserify
 GULP.task('browserify', requireGulpTask('browserify'));
 
+
 // Concats javascript files from all modules by default
 GULP.task('concat', requireGulpTask('concat'));
+
 
 // Runs all javascript related task asynchronous
 GULP.task('javascripts', function (callback) {
@@ -107,10 +112,24 @@ GULP.task('javascripts', function (callback) {
     );
 });
 
+
 // Parses all Totemcss twig documents.
 // Stylesheet tasks should run before parsing any twig files
 // so we can import any generated stylesheet file
 GULP.task('twig', requireGulpTask('twig'));
+
+
+// Watches all development files and run the specified task if any changes occur
+GULP.task('watch', requireGulpTask('watch'));
+
+
+// Watches all development files and run the specified task if any changes occur
+GULP.task('watch', requireGulpTask('watch'));
+
+
+// Starts a local development server, by default on port 8888
+GULP.task('connect', requireGulpTask('connect'));
+
 
 // Default Gulp task that will run all
 // the necessary tasks to generate a development ready build
@@ -123,6 +142,20 @@ GULP.task('default', function (callback) {
             'javascripts'
         ],
         'twig',
+        callback
+    );
+});
+
+
+// Run the default task and setup a development server
+// with watch & livereload functionality
+GULP.task('serve', function (callback) {
+    NODE_MODULES.runSequence(
+        'default',
+        [
+            'connect',
+            'watch'
+        ],
         callback
     );
 });
