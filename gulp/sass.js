@@ -12,21 +12,21 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.TOTEMCSS_SRC + '/totemcss/modules/*/stylesheets/*.scss',
-                    process.env.TOTEMCSS_PACKAGES + '/totem.module.*/stylesheets/*.scss'
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-module*/stylesheets/*.scss'
                 ],
                 output: process.env.TOTEMCSS_DIST + '/totemcss/modules'
             },
             {
                 input: [
                     process.env.TOTEMCSS_SRC + '/totemcss/groups/*/stylesheets/*.scss',
-                    process.env.TOTEMCSS_PACKAGES + '/totem.group.*/stylesheets/*.scss'
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-group*/stylesheets/*.scss'
                 ],
                 output: process.env.TOTEMCSS_DIST + '/totemcss/groups'
             },
             {
                 input: [
                     process.env.TOTEMCSS_SRC + '/totemcss/templates/*/stylesheets/*.scss',
-                    process.env.TOTEMCSS_PACKAGES + '/totem.template.*/stylesheets/*.scss',
+                    process.env.TOTEMCSS_PACKAGES + '/totemcss-template*/stylesheets/*.scss',
                 ],
                 output: process.env.TOTEMCSS_DIST + '/totemcss/templates'
             }

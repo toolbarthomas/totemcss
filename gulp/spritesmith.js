@@ -1,18 +1,18 @@
 module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
-        NODE_MODULES.del(process.env.TOTEMCSS_DIST + '/totemcss/main/images/sprite.*.png');
+        NODE_MODULES.del(process.env.TOTEMCSS_DIST + '/totemcss/main/images/sprite*.png');
 
         var spritesmith = GULP.src(process.env.TOTEMCSS_SRC + '/totemcss/main/images/layout/sprite/**/*.png')
         .pipe(GULP_PLUGINS.plumber())
         .pipe(GULP_PLUGINS.spritesmith({
             padding: 4,
-            imgName: 'sprite.' + REVISION + '.png',
+            imgName: 'sprite-' + REVISION + '.png',
             cssName: '_spritesmith.scss',
             cssTemplate: process.env.TOTEMCSS_SRC + '/totemcss/main/images/layout/sprite/config.handlebars',
             cssHandlebarsHelpers: {
                 imageSource: function (image) {
-                    return '/totemcss/main/images/layout/sprite.' + REVISION + '.png';
+                    return '/totemcss/main/images/layout/sprite-' + REVISION + '.png';
                 },
                 divideRetina: function (value) {
                     return parseInt(value) / 2;

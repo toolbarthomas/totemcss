@@ -62,7 +62,7 @@ module.exports = (GULP, GULP_PLUGINS, NODE_MODULES, REVISION) => {
                 base: './',
                 namespaces: {
                     'totemcss': '../' + (process.cwd()).substring((process.cwd()).lastIndexOf("/") + 1) + '/' + (process.env.TOTEMCSS_SRC).replace('./','') + '/totemcss',
-                    'totemcss_packages': NODE_MODULES.path.normalize(process.env.TOTEMCSS_PACKAGES) + '/'
+                    'totemcss_packages': NODE_MODULES.path.normalize(process.env.TOTEMCSS_PACKAGES)
                 },
                 onError: function(error) {
                     if(!error) {

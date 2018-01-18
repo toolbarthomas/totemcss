@@ -16,8 +16,8 @@
 
 // Import Main
 @import "../../../main/stylesheets/shared/**"; // Root: ./totem
-@import "../../../totem/src/resources/main/stylesheets/shared/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/main/stylesheets/shared/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/main/stylesheets/shared/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/main/stylesheets/shared/**"; // Root: ./totem/node_modules
 
 // Import NPM modules
 @import "../../../../../node_modules/totem*/stylesheets/shared/**"; // Root: ./totem
@@ -29,13 +29,13 @@
 
 // Import project modules
 @import "../../../modules/*/stylesheets/shared/**"; // Root: ./totem
-@import "../../../totem/src/resources/modules/*/stylesheets/shared/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/modules/*/stylesheets/shared/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/modules/*/stylesheets/shared/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/modules/*/stylesheets/shared/**"; // Root: ./totem/node_modules
 
 // Import Extends
 @import "../../../extends/stylesheets/shared/**"; // Root: ./totem
-@import "../../../totem/src/resources/extends/stylesheets/shared/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/extends/stylesheets/shared/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/extends/stylesheets/shared/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/extends/stylesheets/shared/**"; // Root: ./totem/node_modules
 
 // Import local styles
 @import "shared/**";
@@ -53,8 +53,8 @@
 
 // Import Main
 @import "../../../main/stylesheets/helpers/**"; // Root: ./totem
-@import "../../../totem/src/resources/main/stylesheets/helpers/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/main/stylesheets/helpers/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/main/stylesheets/helpers/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/main/stylesheets/helpers/**"; // Root: ./totem/node_modules
 
 // Import NPM modules
 @import "../../../../../node_modules/totem*/stylesheets/helpers/**"; // Root: ./totem
@@ -66,13 +66,13 @@
 
 // Import project modules
 @import "../../../modules/*/stylesheets/helpers/**"; // Root: ./totem
-@import "../../../totem/src/resources/modules/*/stylesheets/helpers/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/modules/*/stylesheets/helpers/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/modules/*/stylesheets/helpers/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/modules/*/stylesheets/helpers/**"; // Root: ./totem/node_modules
 
 // Import Extends
 @import "../../../extends/stylesheets/helpers/**"; // Root: ./totem
-@import "../../../totem/src/resources/extends/stylesheets/helpers/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/extends/stylesheets/helpers/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/extends/stylesheets/helpers/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/extends/stylesheets/helpers/**"; // Root: ./totem/node_modules
 
 // Import local styles
 @import "helpers/**";
@@ -90,8 +90,8 @@
 
 // Import Main
 @import "../../../main/stylesheets/settings/**"; // Root: ./totem
-@import "../../../totem/src/resources/main/stylesheets/settings/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/main/stylesheets/settings/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/main/stylesheets/settings/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/main/stylesheets/settings/**"; // Root: ./totem/node_modules
 
 // Import NPM modules
 @import "../../../../../node_modules/totem*/stylesheets/settings/**"; // Root: ./totem
@@ -103,13 +103,13 @@
 
 // Import project modules
 @import "../../../modules/*/stylesheets/settings/**"; // Root: ./totem
-@import "../../../totem/src/resources/modules/*/stylesheets/settings/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/modules/*/stylesheets/settings/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/modules/*/stylesheets/settings/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/modules/*/stylesheets/settings/**"; // Root: ./totem/node_modules
 
 // Import Extends
 @import "../../../extends/stylesheets/settings/**"; // Root: ./totem
-@import "../../../totem/src/resources/extends/stylesheets/settings/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/extends/stylesheets/settings/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/extends/stylesheets/settings/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/extends/stylesheets/settings/**"; // Root: ./totem/node_modules
 
 // Import local styles
 @import "settings/**";
@@ -127,8 +127,8 @@
 
 // Import Main
 @import "../../../main/stylesheets/tools/**"; // Root: ./totem
-@import "../../../totem/src/resources/main/stylesheets/tools/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/main/stylesheets/tools/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/main/stylesheets/tools/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/main/stylesheets/tools/**"; // Root: ./totem/node_modules
 
 // Import NPM modules
 @import "../../../../../node_modules/totem*/stylesheets/tools/**"; // Root: ./totem
@@ -140,13 +140,13 @@
 
 // Import project modules
 @import "../../../modules/*/stylesheets/tools/**"; // Root: ./totem
-@import "../../../totem/src/resources/modules/*/stylesheets/tools/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/modules/*/stylesheets/tools/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/modules/*/stylesheets/tools/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/modules/*/stylesheets/tools/**"; // Root: ./totem/node_modules
 
 // Import Extends
 @import "../../../extends/stylesheets/tools/**"; // Root: ./totem
-@import "../../../totem/src/resources/extends/stylesheets/tools/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/extends/stylesheets/tools/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/extends/stylesheets/tools/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/extends/stylesheets/tools/**"; // Root: ./totem/node_modules
 
 // Import local styles
 @import "tools/**";
@@ -164,8 +164,8 @@
 
 // Import Main
 @import "../../../main/stylesheets/properties/**"; // Root: ./totem
-@import "../../../totem/src/resources/main/stylesheets/properties/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/main/stylesheets/properties/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/main/stylesheets/properties/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/main/stylesheets/properties/**"; // Root: ./totem/node_modules
 
 // Import NPM modules
 @import "../../../../../node_modules/totem*/stylesheets/properties/**"; // Root: ./totem
@@ -177,13 +177,13 @@
 
 // Import project modules
 @import "../../../modules/*/stylesheets/properties/**"; // Root: ./totem
-@import "../../../totem/src/resources/modules/*/stylesheets/properties/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/modules/*/stylesheets/properties/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/modules/*/stylesheets/properties/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/modules/*/stylesheets/properties/**"; // Root: ./totem/node_modules
 
 // Import Extends
 @import "../../../extends/stylesheets/properties/**"; // Root: ./totem
-@import "../../../totem/src/resources/extends/stylesheets/properties/**"; // Root: ./totem../totemcss_packages
-@import "../../../src/resources/extends/stylesheets/properties/**"; // Root: ./totem/node_modules
+@import "../../../totem/src/totemcss/extends/stylesheets/properties/**"; // Root: ./totem../totemcss_packages
+@import "../../../src/totemcss/extends/stylesheets/properties/**"; // Root: ./totem/node_modules
 
 // Import local styles
 @import "properties/**";
