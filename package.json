@@ -2,8 +2,8 @@
   "name": "totemcss",
   "version": "0.2.0",
   "description": "Modular boilerplate for developing web interfaces rapidly",
-  "main": "index.js",
   "scripts": {
+    "start": "./build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/toolbarthomas/totemcss/issues"
   },
-  "homepage": "https://github.com/toolbarthomas/totemcss#readme"
+  "homepage": "https://github.com/toolbarthomas/totemcss#readme",
+  "devDependencies": {
+    "chalk": "^2.4.1",
+    "dotenv": "^6.0.0",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.10",
+    "path": "^0.12.7",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
+  }
 }
