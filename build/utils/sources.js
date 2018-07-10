@@ -3,6 +3,8 @@ const path = require("path");
 
 /**
  * Output an entry object with sources for Webpack.
+ *  Each source will be scaffoled into the destination path
+ *    defined within the environment file.
  */
 exports.globSources = async function() {
   try {
@@ -17,7 +19,9 @@ exports.globSources = async function() {
           let source = matches[key][i];
 
           let extension = path.extname(source);
-          let dirname = source.replace("./src", "").replace(extension, "");
+          let dirname = source
+            .replace(process.env.SRC, "")
+            .replace(extension, "");
 
           sources[dirname] = source;
         }
@@ -35,10 +39,16 @@ exports.globSources = async function() {
 _parseGlobSources = async function() {
   try {
     const matches = {};
-    matches["base"] = await glob.sync("./src/base/javascripts/index.js");
-    matches["modules"] = await glob.sync(
-      "./src/modules/*/javascripts/index.js"
+
+    let base_path = path.join(process.env.SRC, "/base/javascripts/index.js");
+    matches["base"] = await glob.sync(`./${base_path}`);
+
+    let modules_path = path.join(
+      process.env.SRC,
+      "/modules/*/javascripts/index.js"
     );
+    matches["modules"] = await glob.sync(`./${modules_path}`);
+
     return matches;
   } catch (error) {
     throw error;

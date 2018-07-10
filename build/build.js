@@ -1,9 +1,11 @@
 const fs = require("fs");
 const webpack = require("webpack");
-const merge = require("webpack-merge");
+const plugins = {
+  merge: require("webpack-merge")
+};
 
-const message = require("./message.js");
-const sources = require("./sources.js");
+const message = require("./utils/message.js");
+const sources = require("./utils/sources.js");
 
 /**
  * Check if there is any dotenv file is defined, otherwise create one.
@@ -28,9 +30,27 @@ const ENV = require("dotenv").config();
 
 /**
  * Define the current environment for our application.
- *  Fallback to `production` if no environment has been set within `./.env`.
+ *  Use `production` if the `ENVIRONMENT` variable doesn't exists within `./.env`.
  */
 process.env.ENVIRONMENT = process.env.ENVIRONMENT || "production";
+
+/**
+ * Define an entry path for the application, from the environment file.
+ *  Use path `./src` if the `SRC` variable doesn't exists within `./.env`.
+ */
+process.env.SRC = process.env.SRC || "./src";
+
+/**
+ * Define an destination path for the application, from the environment file.
+ *  Use path `./dist` if the `DIST` variable doesn't exists within `./.env`.
+ */
+process.env.DIST = process.env.DIST || "./dist";
+
+/**
+ * Define a default port number for our development server.
+ *  Use port `8080` if the `PORT` variable doesn't exists within `./.env`.
+ */
+process.env.PORT = process.env.PORT || 8080;
 
 /**
  * Load up the common configuration for Webpack.
@@ -45,7 +65,10 @@ let webpack_config = require("../webpack.config.js");
 let webpack_config_from_environment = `../webpack.config.${process.env.ENVIRONMENT.toLowerCase()}.js`;
 
 if (fs.existsSync(webpack_config_from_environment)) {
-  webpack_config = merge(webpack_config, webpack_config_from_environment);
+  webpack_config = plugins.merge(
+    webpack_config,
+    webpack_config_from_environment
+  );
 } else {
   message.warning(
     "The environment has been defined within './.env' but the specific Webpack configuration doesn't exists."
@@ -61,6 +84,8 @@ if (fs.existsSync(webpack_config_from_environment)) {
  *  by using globbing patterns and fire up Webpack.
  */
 sources.globSources().then(sources => {
+  message.notice("Fire up webpack!");
+
   webpack_config["entry"] = sources;
 
   webpack(webpack_config, (error, stats) => {
