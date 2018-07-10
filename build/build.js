@@ -1,7 +1,9 @@
 const fs = require("fs");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
-const totemcss = require("./totemcss.js")();
+
+const message = require("./message.js");
+const sources = require("./sources.js");
 
 /**
  * Check if there is any dotenv file is defined, otherwise create one.
@@ -12,7 +14,7 @@ if (!fs.existsSync(".env")) {
       throw error;
     }
 
-    totemcss.warning(
+    message.warning(
       `No environment file has been defined. A fresh new copy has been made within: ${process.cwd()}`
     );
   });
@@ -45,29 +47,34 @@ let webpack_config_from_environment = `../webpack.config.${process.env.ENVIRONME
 if (fs.existsSync(webpack_config_from_environment)) {
   webpack_config = merge(webpack_config, webpack_config_from_environment);
 } else {
-  totemcss.warning(
-    "The environment has been defined within './.env' but the specific Webpack configuration doesn't excists."
+  message.warning(
+    "The environment has been defined within './.env' but the specific Webpack configuration doesn't exists."
   );
 
-  totemcss.warning(
+  message.warning(
     `Be sure to create a Webpack configuration file at '${webpack_config_from_environment}' if you have an environment specific build flow.`
   );
 }
 
 /**
- * Fire up Webpack!
+ * Generates a dynamic source list within source directory
+ *  by using globbing patterns and fire up Webpack.
  */
-webpack(webpack_config, (error, stats) => {
-  if (error) {
-    throw error;
-  }
+sources.globSources().then(sources => {
+  webpack_config["entry"] = sources;
 
-  process.stdout.write(
-    stats.toString({
-      colors: true,
-      modules: false,
-      chunks: false,
-      chunkModules: false
-    }) + "\n\n"
-  );
+  webpack(webpack_config, (error, stats) => {
+    if (error) {
+      throw error;
+    }
+
+    process.stdout.write(
+      stats.toString({
+        colors: true,
+        modules: false,
+        chunks: false,
+        chunkModules: false
+      }) + "\n\n"
+    );
+  });
 });

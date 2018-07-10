@@ -10,7 +10,7 @@ exports.warning = function(message) {
     return;
   }
 
-  console.log(chalk.yellow("[ Totemcss ]" + message));
+  console.log(chalk.yellow("[ Totemcss ] - " + message));
 };
 
 /**
@@ -23,6 +23,6 @@ exports.error = function(error) {
     return;
   }
 
-  console.log(chalk.red("[ Totemcss ]" + error));
+  console.log(chalk.red("[ Totemcss ] - " + error));
   process.exit(1);
 };
