@@ -7,23 +7,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 const StyleLintFormatterPretty = require("stylelint-formatter-pretty");
 
-const webpack_entries = {
-  raw: [`${process.env.SRC}/base/index.js`],
-  parsed: {}
-};
-
-for (let i = 0; i < webpack_entries.raw.length; i++) {
-  let extension = path.extname(webpack_entries.raw[i]);
-  let key = webpack_entries.raw[i]
-    .replace(process.env.SRC, "")
-    .replace(extension, "");
-
-  webpack_entries.parsed[key] = webpack_entries.raw[i];
-}
+const sources = require("./build/config/sources").webpakSources();
 
 module.exports = {
   mode: "none",
-  entry: webpack_entries.parsed,
+  entry: sources || {},
+  stats: { children: false },
   output: {
     path: path.resolve(__dirname, process.env.DIST),
     filename: "[name].js"

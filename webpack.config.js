@@ -18,8 +18,8 @@
  *  would be the `ENVIRONMENT` value.
  */
 const config = {
-  env: require("./build/config/env"),
+  env: require("./build/config/env")(),
   webpack: require("./build/config/webpack")
 };
 
-module.exports = config.webpack() || {};
+module.exports = config.webpack || {};

@@ -3,7 +3,7 @@
  *  Also merges environment specific configuration if the application
  *    has the `ENVIRONMENT` constant defined within the environment file.
  */
-(module.exports = () => {
+module.exports = () => {
   const chalk = require("chalk");
   const fs = require("fs");
   const merge = require("webpack-merge");
@@ -47,4 +47,4 @@
   }
 
   return webpack_config;
-})();
+};
