@@ -17,10 +17,9 @@
  * For example: `webpack.config.production.js` should exist if `production`
  *  would be the `ENVIRONMENT` value.
  */
-
 const config = {
-  env: require("./config/env"),
-  webpack: require("./config/webpack")
+  env: require("./build/config/env"),
+  webpack: require("./build/config/webpack")
 };
 
 module.exports = config.webpack() || {};

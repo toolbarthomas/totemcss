@@ -1,7 +1,7 @@
 const path = require("path");
 
 const webpack_entries = {
-  raw: [`${process.env.SRC}/base/javascripts/index.js`],
+  raw: [`${process.env.SRC}/base/index.js`],
   parsed: {}
 };
 

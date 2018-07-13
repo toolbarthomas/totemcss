@@ -1,11 +1,9 @@
 /**
  * Defines the Webpack configuration object from `webpack.config.js`.
- *  Also merges environment specific configuration it the application
- *    has an environment defined within the environment file.
+ *  Also merges environment specific configuration if the application
+ *    has the `ENVIRONMENT` constant defined within the environment file.
  */
-module.exports = () => {
-  const env = require("./env");
-
+(module.exports = () => {
   const chalk = require("chalk");
   const fs = require("fs");
   const merge = require("webpack-merge");
@@ -13,7 +11,7 @@ module.exports = () => {
   /**
    * Define the common Webpack configuration we use for all environments.
    */
-  let webpack_common_config = require("../webpack.config.common");
+  let webpack_common_config = require(`${process.cwd()}/webpack.config.common`);
 
   /**
    * Define the secondary Webpack configuration path from
@@ -49,4 +47,4 @@ module.exports = () => {
   }
 
   return webpack_config;
-};
+})();
