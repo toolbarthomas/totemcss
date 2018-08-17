@@ -1,7 +1,7 @@
 /**
  * Defines the Webpack configuration object from `webpack.config.js`.
- *  Also merges environment specific configuration if the application
- *    has the `ENVIRONMENT` constant defined within the environment file.
+ * Also merges environment specific configuration if the application
+ * as the `ENVIRONMENT` constant defined within the environment file.
  */
 module.exports = () => {
   const chalk = require("chalk");
@@ -15,7 +15,7 @@ module.exports = () => {
 
   /**
    * Define the secondary Webpack configuration path from
-   *  the given `ENVIRONMENT` variable.
+   * the given `ENVIRONMENT` variable.
    */
   let webpack_environment_config = `${process.cwd()}/webpack.config.${process.env.ENVIRONMENT.toLowerCase()}.js`;
 

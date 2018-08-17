@@ -4,12 +4,14 @@
  *    within the dotenv environment file.
  */
 const path = require("path");
+const middleware = require("webpack-dev-middleware");
 
 module.exports = {
   mode: "development",
   devServer: {
     contentBase: path.join(__dirname, process.env.DIST),
     compress: true,
-    port: process.env.PORT
+    port: process.env.PORT,
+    hot: true
   }
 };

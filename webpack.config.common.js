@@ -3,35 +3,31 @@
  */
 
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const StyleLintPlugin = require("stylelint-webpack-plugin");
-const StyleLintFormatterPretty = require("stylelint-formatter-pretty");
+const _ = require("lodash");
 
-const sources = require("./build/config/sources").webpakSources();
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+/**
+ * Defines each Webpack plugin defined from each task.
+ */
+const plugins = _.merge(require("./build/tasks/twig").plugins());
+
+/**
+ * Defines the Webpack rule for each specific task.
+ */
+const rules = _.merge(require("./build/tasks/twig").rules());
 
 module.exports = {
   mode: "none",
-  entry: sources || {},
-  stats: { children: false },
+  entry: require("./build/config/entries").webpackEntries() || {},
+  stats: "minimal",
   output: {
     path: path.resolve(__dirname, process.env.DIST),
     filename: "[name].js"
   },
   plugins: [
-    /**
-     * Webpack will parse our initial stylesheet from the base entry file: base/index.js
-     */
     new MiniCssExtractPlugin({
       filename: "[name].css"
-    }),
-    new StyleLintPlugin({
-      configFile: `${process.cwd()}/.stylelintrc`,
-      formatter: StyleLintFormatterPretty,
-      context: process.env.SRC,
-      quiet: false,
-      files: "**/*.css",
-      failOnError: false,
-      emitErrors: true
     })
   ],
   module: {
@@ -40,13 +36,9 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              sourceMap: true
-            }
+            loader: MiniCssExtractPlugin.loader
           },
-          "css-loader",
-          "postcss-loader"
+          "css-loader"
         ]
       }
     ]

@@ -19,7 +19,9 @@
  */
 const config = {
   env: require("./build/config/env")(),
-  webpack: require("./build/config/webpack")
+  webpack: require("./build/config/webpack")()
 };
+
+console.log(config.webpack);
 
 module.exports = config.webpack || {};
