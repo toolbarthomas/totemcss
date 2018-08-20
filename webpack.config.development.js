@@ -4,7 +4,6 @@
  *    within the dotenv environment file.
  */
 const path = require("path");
-const middleware = require("webpack-dev-middleware");
 
 module.exports = {
   mode: "development",

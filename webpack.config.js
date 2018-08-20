@@ -22,6 +22,4 @@ const config = {
   webpack: require("./build/config/webpack")()
 };
 
-console.log(config.webpack);
-
 module.exports = config.webpack || {};
