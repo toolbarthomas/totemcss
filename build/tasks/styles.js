@@ -1,7 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  plugins: () => {
+  /**
+   * Defines the styles-related plugin for Webpack
+   */
+  setPlugin: () => {
     let plugins = [
       new MiniCssExtractPlugin({
         filename: "[name].css"
@@ -10,7 +13,11 @@ module.exports = {
 
     return plugins;
   },
-  rules: () => {
+
+  /**
+   * Defines the styles-related rules for Webpack
+   */
+  setRuleset: () => {
     let rules = [
       {
         test: /\.css$/,
@@ -21,7 +28,8 @@ module.exports = {
               sourceMap: true
             }
           },
-          "css-loader"
+          "css-loader",
+          "postcss-loader"
         ]
       }
     ];
