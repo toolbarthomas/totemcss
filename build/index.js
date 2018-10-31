@@ -71,9 +71,9 @@ module.exports = {
 
     /**
      * Define the default port number for our development server.
-     *  Use port `8000` if there is no `PORT` variable.
+     *  Use port `8080` if there is no `PORT` variable.
      */
-    process.env.PORT = process.env.PORT || 8000;
+    process.env.PORT = process.env.PORT || 8080;
 
     /**
      * Notify the user that the environment configration is loaded
@@ -132,27 +132,34 @@ module.exports = {
    *
    */
   getWebpackEntries: function() {
-    const base = [`${process.env.SRC}/base/index.js`];
-    const modules = glob.sync(`${process.env.SRC}/modules/*/index.js`);
-    const entries = base.concat(modules);
+    const templates = glob.sync(`${process.env.SRC}/templates/*/index.js`);
 
-    if (entries == null || entries.length === 0) {
+    if (templates == null || templates.length === 0) {
       return {};
     }
 
-    let webpack_entries = {};
+    let entries = {};
 
     /**
      * Convert the `entries` array to an object to keep
      * the current folder structure during the build.
      */
-    for (let i = 0; i < entries.length; i++) {
-      let extension = path.extname(entries[i]);
-      let key = entries[i].replace(process.env.SRC, "").replace(extension, "");
+    for (let i = 0; i < templates.length; i++) {
+      let stats = fs.statSync(templates[i]);
 
-      webpack_entries[key] = entries[i];
+      // Ignore empty files
+      if (!stats.size) {
+        continue;
+      }
+
+      let extension = path.extname(templates[i]);
+      let key = templates[i]
+        .replace(process.env.SRC, "")
+        .replace(extension, "");
+
+      entries[key] = templates[i];
     }
 
-    return webpack_entries || {};
+    return entries || {};
   }
 };

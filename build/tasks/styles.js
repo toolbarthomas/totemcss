@@ -22,12 +22,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              sourceMap: true
-            }
-          },
+          process.env.ENVIRONMENT === "development"
+            ? "vue-style-loader"
+            : MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader"
         ]

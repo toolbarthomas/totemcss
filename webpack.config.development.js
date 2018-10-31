@@ -4,13 +4,16 @@
  *    within the dotenv environment file.
  */
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
   devServer: {
-    contentBase: path.join(__dirname, process.env.DIST),
-    compress: true,
+    stats: "errors-only",
+    open: true,
+    contentBase: process.env.DIST,
     port: process.env.PORT,
     hot: true
-  }
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };

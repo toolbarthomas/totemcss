@@ -5,22 +5,29 @@
 const path = require("path");
 const _ = require("lodash");
 
-const webpack = {
-  entries: require("./build/index").getWebpackEntries() || {},
-  plugins: _.merge(require("./build/tasks/styles").setPlugin()),
-  rules: _.merge(require("./build/tasks/styles").setRuleset())
+const config = {
+  plugins: _.merge(
+    require("./build/tasks/vue").setPlugin(),
+    require("./build/tasks/styles").setPlugin(),
+    require("./build/tasks/templates").setPlugin()
+  ),
+  rules: _.merge(
+    require("./build/tasks/vue").setRuleset(),
+    require("./build/tasks/styles").setRuleset()
+  )
 };
 
 module.exports = {
   mode: "none",
-  entry: webpack["entries"],
+  entry: `${process.env.SRC}/index.js`,
   stats: "minimal",
   output: {
-    path: path.resolve(__dirname, process.env.DIST),
-    filename: "[name].js"
+    path: path.join(__dirname, process.env.DIST),
+    publicPath: "",
+    filename: "index.bundle.js"
   },
-  plugins: webpack["plugins"],
+  plugins: config["plugins"],
   module: {
-    rules: webpack["rules"]
+    rules: config["rules"]
   }
 };
